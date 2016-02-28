@@ -1,0 +1,20 @@
+{
+  "name": "iotacss-list",
+  "version": "0.1.0",
+  "description": "List object for iotaCSS",
+  "main": "_objects.list.scss",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iotacss/objects.list.git"
+  },
+  "keywords": [
+    "iotacss",
+    "css",
+    "bem",
+    "oocss"
+  ],
+  "dependencies": {
+    "iotacss-default": "0.1.0"
+  },
+  "author": "Dimitris Psaropoulos <info@harby.me>"
+}

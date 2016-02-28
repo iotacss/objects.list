@@ -1,0 +1,135 @@
+// List Object
+
+
+
+
+// Dependencies
+//   Settings.Default
+
+
+
+
+// Options
+
+$iota-list                : true;
+$iota-list--block         : false !default;
+$iota-list--inline        : false !default;
+$iota-list--span          : false !default;
+$iota-list-gutter-default : 10px;
+$iota-list-gutter-extra   : () !default;
+
+
+
+
+.#{$iota-object-namespace}list {
+  margin:  0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+
+// Block List Object
+
+@if ($iota-list--block == true) {
+  
+  .#{$iota-object-namespace}list--block {
+
+    .#{$iota-object-namespace}list__item {
+      display: block;
+      margin-bottom: $iota-list-gutter-default;
+    }
+
+    .#{$iota-object-namespace}list__item:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+
+
+
+// Inline List Object
+
+@if ($iota-list--inline == true) {
+
+  .#{$iota-object-namespace}list--inline {
+
+    .#{$iota-object-namespace}list__item {
+      display: inline-block;
+      margin-right: $iota-list-gutter-default;
+    }
+
+  }
+
+}
+
+
+
+
+// Span List Object
+
+@if ($iota-list--span == true) {
+
+  .#{$iota-object-namespace}list--span {
+    display: table;
+    width: 100%;
+    border-spacing: $iota-list-gutter-default;
+    table-layout: fixed;
+
+    .#{$iota-object-namespace}list__item {
+      display: table-cell;
+      text-align: center;
+    }
+
+  }
+
+}
+
+
+
+
+// List Object with extra gutters
+
+@each $name, $size in $iota-list-gutter-extra {
+
+  .#{$iota-object-namespace}list--#{$name} {
+
+    @if ($iota-list--block == true) {
+
+      &.#{$iota-object-namespace}list--block {
+
+        .#{$iota-object-namespace}list__item {
+          margin-bottom: #{$size};
+        }
+
+      }
+
+    }
+
+    @if ($iota-objects-list--inline == true) {
+
+      &.#{$iota-object-namespace}list--inline {
+
+        .#{$iota-object-namespace}list__item {
+          margin-right: #{$size};
+        }
+
+      }
+
+    }
+
+    @if ($iota-objects-list--span == true) {
+
+      &.#{$iota-object-namespace}list--span {
+        border-spacing: #{$size};
+      }
+
+    }
+
+  }
+
+}
