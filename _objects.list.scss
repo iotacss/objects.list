@@ -110,7 +110,7 @@ $iota-list-gutter-extra   : () !default;
 
     }
 
-    @if ($iota-objects-list--inline == true) {
+    @if ($iota-list--inline == true) {
 
       &.#{$iota-object-namespace}list--inline {
 
@@ -122,7 +122,7 @@ $iota-list-gutter-extra   : () !default;
 
     }
 
-    @if ($iota-objects-list--span == true) {
+    @if ($iota-list--span == true) {
 
       &.#{$iota-object-namespace}list--span {
         border-spacing: #{$size};
