@@ -1,6 +1,6 @@
 {
   "name": "iotacss-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "List object for iotaCSS",
   "main": "_objects.list.scss",
   "repository": {
