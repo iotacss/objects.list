@@ -38,11 +38,10 @@ $iota-list-gutter-extra   : () !default;
 
     & > .#{$iota-object-namespace}list__item {
       display: block;
-      margin-bottom: $iota-list-gutter-default;
     }
-
-    & > .#{$iota-object-namespace}list__item:last-child {
-      margin-bottom: 0;
+    
+    & > .#{$iota-object-namespace}list__item:not(:last-child) {
+      margin-bottom: $iota-list-gutter-default;
     }
 
   }
@@ -60,6 +59,9 @@ $iota-list-gutter-extra   : () !default;
 
     & > .#{$iota-object-namespace}list__item {
       display: inline-block;
+    }
+    
+    & > .#{$iota-object-namespace}list__item:not(:last-child) {
       margin-right: $iota-list-gutter-default;
     }
 
@@ -102,7 +104,7 @@ $iota-list-gutter-extra   : () !default;
 
       &.#{$iota-object-namespace}list--block {
 
-        & > .#{$iota-object-namespace}list__item {
+        & > .#{$iota-object-namespace}list__item:not(:last-child) {
           margin-bottom: #{$size};
         }
 
@@ -114,7 +116,7 @@ $iota-list-gutter-extra   : () !default;
 
       &.#{$iota-object-namespace}list--inline {
 
-        & > .#{$iota-object-namespace}list__item {
+        & > .#{$iota-object-namespace}list__item:not(:last-child) {
           margin-right: #{$size};
         }
 
