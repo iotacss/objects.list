@@ -6,29 +6,31 @@ The list object is responsible for creating inline, block and span lists.
 ### Installation ###
 
 ```
-npm install --save iotacss-list
+npm install --save iotacss-obj-list
 ```
-
-
-### Dependencies ###
-
-* [Settings.Default](https://github.com/iotacss/settings.default)
 
 
 ### Options ###
 
-```
-$iota-list--block         : false !default;
-$iota-list--inline        : false !default;
-$iota-list--span          : false !default;  // The list elements are inline and they take the 100% of their container
-$iota-list-gutter-default : 10px !default;
-$iota-list-gutter-extra   : () !default;
+```sass
+$iota-obj-list-namespace      : 'list' !default;
+$iota-obj-list-item-name      : 'item' !default;
+$iota-obj-list-block-name     : 'block' !default;
+$iota-obj-list-inline-name    : 'inline' !default;
+$iota-obj-list-span-name      : 'span' !default;
+
+$iota-obj-list-gutter-default : $iota-global-gutter-default !default;
+$iota-obj-list-gutter-extra   : () !default;
+
+$iota-obj-list-block          : false !default;
+$iota-obj-list-inline         : false !default;
+$iota-obj-list-span           : false !default;
 ```
 
 
 ### Classes ###
 
-```
+```sass
 .o-list
   .o-list__item
 

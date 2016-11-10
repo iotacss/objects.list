@@ -1,6 +1,6 @@
 {
-  "name": "iotacss-list",
-  "version": "0.1.4",
+  "name": "iotacss-objs-list",
+  "version": "1.0.0",
   "description": "List object for iotaCSS",
   "main": "_objects.list.scss",
   "repository": {
@@ -10,11 +10,9 @@
   "keywords": [
     "iotacss",
     "css",
+    "sass",
     "bem",
     "oocss"
   ],
-  "dependencies": {
-    "iotacss-default": "0.1.0"
-  },
   "author": "Dimitris Psaropoulos <info@harby.me>"
 }

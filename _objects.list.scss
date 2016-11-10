@@ -3,25 +3,34 @@
 
 
 
-// Dependencies
-//   Settings.Default
-
-
-
-
 // Options
 
-$iota-list                : true;
-$iota-list--block         : false !default;
-$iota-list--inline        : false !default;
-$iota-list--span          : false !default;
-$iota-list-gutter-default : 10px !default;
-$iota-list-gutter-extra   : () !default;
+$iota-objs-list                : true;
+
+$iota-objs-list-namespace      : 'list' !default;
+$iota-objs-list-item-name      : 'item' !default;
+$iota-objs-list-block-name     : 'block' !default;
+$iota-objs-list-inline-name    : 'inline' !default;
+$iota-objs-list-span-name      : 'span' !default;
+
+$iota-objs-list-gutter-default : $iota-global-gutter-default !default;
+$iota-objs-list-gutter-extra   : () !default;
+
+$iota-objs-list-block          : false !default;
+$iota-objs-list-inline         : false !default;
+$iota-objs-list-span           : false !default;
 
 
 
 
-.#{$iota-object-namespace}list {
+$iota-objs-list-var-list       : $iota-global-objects-namespace + $iota-objs-list-namespace;
+$iota-objs-list-var-list-mod   : $iota-objs-list-var-list + '--';
+$iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-list-item-name;
+
+
+
+
+.#{$iota-objs-list-var-list} {
   margin:  0;
   padding: 0;
   list-style: none;
@@ -32,16 +41,16 @@ $iota-list-gutter-extra   : () !default;
 
 // Block List Object
 
-@if ($iota-list--block == true) {
+@if ($iota-objs-list-block == true) {
   
-  .#{$iota-object-namespace}list--block {
+  .#{$iota-objs-list-var-list-mod + $iota-objs-list-block-name} {
 
-    & > .#{$iota-object-namespace}list__item {
+    & > .#{$iota-objs-list-var-list-item} {
       display: block;
     }
     
-    & > .#{$iota-object-namespace}list__item:not(:last-child) {
-      margin-bottom: $iota-list-gutter-default;
+    & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
+      @include _iota-generate-unit('margin-bottom', $iota-objs-list-gutter-default);
     }
 
   }
@@ -53,16 +62,16 @@ $iota-list-gutter-extra   : () !default;
 
 // Inline List Object
 
-@if ($iota-list--inline == true) {
+@if ($iota-objs-list-inline == true) {
 
-  .#{$iota-object-namespace}list--inline {
+  .#{$iota-objs-list-var-list-mod + $iota-objs-list-inline-name} {
 
-    & > .#{$iota-object-namespace}list__item {
+    & > .#{$iota-objs-list-var-list-item} {
       display: inline-block;
     }
     
-    & > .#{$iota-object-namespace}list__item:not(:last-child) {
-      margin-right: $iota-list-gutter-default;
+    & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
+      @include _iota-generate-unit('margin-right', $iota-objs-list-gutter-default);
     }
 
   }
@@ -74,15 +83,15 @@ $iota-list-gutter-extra   : () !default;
 
 // Span List Object
 
-@if ($iota-list--span == true) {
+@if ($iota-objs-list-span == true) {
 
-  .#{$iota-object-namespace}list--span {
+  .#{$iota-objs-list-var-list-mod + $iota-objs-list-span-name} {
     display: table;
     width: 100%;
-    border-spacing: $iota-list-gutter-default;
+    @include _iota-generate-unit('border-spacing', $iota-objs-list-gutter-default);
     table-layout: fixed;
 
-    & > .#{$iota-object-namespace}list__item {
+    & > .#{$iota-objs-list-var-list-item} {
       display: table-cell;
       text-align: center;
     }
@@ -96,38 +105,38 @@ $iota-list-gutter-extra   : () !default;
 
 // List Object with extra gutters
 
-@each $name, $size in $iota-list-gutter-extra {
+@each $gutter-name, $gutter-size in $iota-objs-list-gutter-extra {
 
-  .#{$iota-object-namespace}list--#{$name} {
+  .#{$iota-objs-list-var-list-mod + $gutter-name} {
 
-    @if ($iota-list--block == true) {
+    @if ($iota-objs-list-block == true) {
 
-      &.#{$iota-object-namespace}list--block {
+      &.#{$iota-objs-list-var-list-mod + $iota-objs-list-block-name} {
 
-        & > .#{$iota-object-namespace}list__item:not(:last-child) {
-          margin-bottom: #{$size};
+        & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
+          @include _iota-generate-unit('margin-bottom', $gutter-size);
         }
 
       }
 
     }
 
-    @if ($iota-list--inline == true) {
+    @if ($iota-objs-list-inline == true) {
 
-      &.#{$iota-object-namespace}list--inline {
+      &.#{$iota-objs-list-var-list-mod + $iota-objs-list-inline-name} {
 
-        & > .#{$iota-object-namespace}list__item:not(:last-child) {
-          margin-right: #{$size};
+        & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
+          @include _iota-generate-unit('margin-right', $gutter-size);
         }
 
       }
 
     }
 
-    @if ($iota-list--span == true) {
+    @if ($iota-objs-list-span == true) {
 
-      &.#{$iota-object-namespace}list--span {
-        border-spacing: #{$size};
+      &.#{$iota-objs-list-var-list-mod + $iota-objs-list-span-name} {
+        @include _iota-generate-unit('border-spacing', $gutter-size);
       }
 
     }
