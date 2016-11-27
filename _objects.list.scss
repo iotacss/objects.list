@@ -50,7 +50,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
     }
     
     & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
-      @include _iota-generate-unit('margin-bottom', $iota-objs-list-gutter-default);
+      @include _iota-generate-unit('margin', 'bottom', $iota-objs-list-gutter-default);
     }
 
   }
@@ -71,7 +71,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
     }
     
     & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
-      @include _iota-generate-unit('margin-right', $iota-objs-list-gutter-default);
+      @include _iota-generate-unit('margin', 'right', $iota-objs-list-gutter-default);
     }
 
   }
@@ -88,7 +88,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
   .#{$iota-objs-list-var-list-mod + $iota-objs-list-span-name} {
     display: table;
     width: 100%;
-    @include _iota-generate-unit('border-spacing', $iota-objs-list-gutter-default);
+    @include _iota-generate-unit('border', 'spacing', $iota-objs-list-gutter-default);
     table-layout: fixed;
 
     & > .#{$iota-objs-list-var-list-item} {
@@ -114,7 +114,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
       &.#{$iota-objs-list-var-list-mod + $iota-objs-list-block-name} {
 
         & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
-          @include _iota-generate-unit('margin-bottom', $gutter-size);
+          @include _iota-generate-unit('margin', 'bottom', $gutter-size);
         }
 
       }
@@ -126,7 +126,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
       &.#{$iota-objs-list-var-list-mod + $iota-objs-list-inline-name} {
 
         & > .#{$iota-objs-list-var-list-item}:not(:last-child) {
-          @include _iota-generate-unit('margin-right', $gutter-size);
+          @include _iota-generate-unit('margin', 'right', $gutter-size);
         }
 
       }
@@ -136,7 +136,7 @@ $iota-objs-list-var-list-item  : $iota-objs-list-var-list + '__' + $iota-objs-li
     @if ($iota-objs-list-span == true) {
 
       &.#{$iota-objs-list-var-list-mod + $iota-objs-list-span-name} {
-        @include _iota-generate-unit('border-spacing', $gutter-size);
+        @include _iota-generate-unit('border', 'spacing', $gutter-size);
       }
 
     }
